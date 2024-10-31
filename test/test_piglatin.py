@@ -15,3 +15,18 @@ class TestPigLatin(unittest.TestCase):
         phrase = piglatin.get_phrase()
         self.assertEqual("nil", phrase)
 
+    def test_translate_word_starting_with_vowel_1(self):
+        piglatin = PigLatin("any")
+        translation = piglatin.translate()
+        self.assertEqual("anynay", translation)
+
+    def test_translate_word_starting_with_vowel_2(self):
+        piglatin = PigLatin("apple")
+        translation = piglatin.translate()
+        self.assertEqual("appleyay", translation)
+
+    def test_translate_word_starting_with_vowel_3(self):
+        piglatin = PigLatin("ask")
+        translation = piglatin.translate()
+        self.assertEqual("askay", translation)
+
