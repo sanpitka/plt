@@ -1,4 +1,6 @@
 
+import string
+
 class PigLatin:
     def __init__(self, phrase: str):
         self.phrase = phrase
@@ -17,6 +19,10 @@ class PigLatin:
                 subwords = word.split('-')
                 translated_subwords = [self.translate_word(subword, vowels) for subword in subwords]
                 translated_word = '-'.join(translated_subwords)
+            elif any(char in string.punctuation for char in word):
+                subword = ''.join([char for char in word if char not in string.punctuation])
+                punctuation = ''.join([char for char in word if char in string.punctuation])
+                translated_word = self.translate_word(subword, vowels) + punctuation
             else:
                 translated_word = self.translate_word(word, vowels)
             translated_words.append(translated_word)
