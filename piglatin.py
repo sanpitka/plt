@@ -1,7 +1,6 @@
 
-import string
-
 from error import PigLatinError
+import string
 
 class PigLatin:
     def __init__(self, phrase: str):
